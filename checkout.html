@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!-- ================================================================
+     X Likes Gallery — Paddle 체크아웃 페이지 (GitHub Pages 호스팅)
+
+     확장은 MV3 CSP 때문에 Paddle.js(CDN)를 못 띄운다. 그래서 이 페이지를
+     일반 웹사이트(GitHub Pages)에 올려 새 탭으로 열고, 여기서 결제를 띄운다.
+
+     확장이 여는 URL 예:
+       https://<user>.github.io/x-likes-gallery/checkout.html?email=foo@bar.com
+
+     email 쿼리파라미터 → Paddle 체크아웃 prefill + customData.email 로 전달.
+     customData.email 은 webhook에 따라와 Worker가 엔타이틀먼트를 이메일로 기록한다.
+
+     ⚠️ 출시 시 교체: PADDLE_ENV="production", PADDLE_TOKEN=live토큰, PRICE_ID=live가격ID.
+     ================================================================ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>X Likes Gallery Pro — Checkout</title>
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      background: #0f1419; color: #e7e9ea;
+    }
+    .card {
+      max-width: 420px; padding: 32px; text-align: center;
+      background: #16202a; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,.4);
+    }
+    h1 { font-size: 20px; margin: 0 0 8px; }
+    p { color: #8b98a5; font-size: 14px; line-height: 1.5; margin: 8px 0; }
+    .price { font-size: 28px; font-weight: 700; color: #1d9bf0; margin: 16px 0 4px; }
+    button {
+      margin-top: 20px; padding: 12px 24px; border: 0; border-radius: 9999px;
+      background: #1d9bf0; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer;
+    }
+    button:hover { background: #1a8cd8; }
+    .err { color: #f4212e; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>X Likes Gallery Pro</h1>
+    <div class="price">$5<span style="font-size:15px;color:#8b98a5;">/month</span></div>
+    <p>Cloud backup of your liked media to your own Google Drive.</p>
+    <p id="status"></p>
+    <button id="pay">Continue to payment</button>
+  </div>
+
+  <script>
+    /* ── 설정 (sandbox) ───────────────────────────────────── */
+    const PADDLE_ENV   = "sandbox"; // 출시: "production"
+    const PADDLE_TOKEN = "test_2ee675b2ba1600b2380509d5d60"; // 출시: live_ 토큰
+    const PRICE_ID     = "pri_01kt6gx7m5svxqv8dxxrmknjhg";   // 출시: live 가격 ID
+
+    const params = new URLSearchParams(location.search);
+    const email = (params.get("email") || "").trim();
+    const statusEl = document.getElementById("status");
+    const payBtn = document.getElementById("pay");
+
+    function setStatus(msg, isErr) {
+      statusEl.textContent = msg || "";
+      statusEl.className = isErr ? "err" : "";
+    }
+
+    try {
+      if (PADDLE_ENV === "sandbox") Paddle.Environment.set("sandbox");
+      Paddle.Initialize({
+        token: PADDLE_TOKEN,
+        eventCallback: function (ev) {
+          if (ev.name === "checkout.completed") {
+            setStatus("Payment complete. You can close this tab and return to the extension.");
+            payBtn.style.display = "none";
+          }
+        },
+      });
+    } catch (e) {
+      setStatus("Failed to initialize checkout: " + (e?.message || e), true);
+    }
+
+    function openCheckout() {
+      const opts = {
+        items: [{ priceId: PRICE_ID, quantity: 1 }],
+        settings: { displayMode: "overlay", theme: "dark", showAddDiscounts: false },
+      };
+      if (email) {
+        opts.customer = { email: email };
+        opts.customData = { email: email };
+      }
+      try {
+        Paddle.Checkout.open(opts);
+      } catch (e) {
+        setStatus("Could not open checkout: " + (e?.message || e), true);
+      }
+    }
+
+    payBtn.addEventListener("click", openCheckout);
+
+    /* 이메일이 전달됐으면 자동으로 체크아웃 오픈 */
+    if (email) openCheckout();
+    else setStatus("Tip: open this page from the extension so your email is filled in.");
+  </script>
+</body>
+</html>
