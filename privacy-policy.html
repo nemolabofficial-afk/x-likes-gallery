@@ -3,374 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — X Likes Gallery</title>
+  <title>X Likes Gallery — Privacy Policy</title>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --ink: #1a1a1a;
-      --ink-2: #444;
-      --ink-3: #777;
-      --rule: #e2e2e2;
-      --accent: #e60023;
-      --bg: #fafaf8;
-      --surface: #ffffff;
-    }
-
-    html { font-size: 16px; }
-
+    :root { color-scheme: light dark; }
     body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Georgia", "Times New Roman", serif;
-      line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65; color: #1a1a1a; background: #fff;
+      max-width: 760px; margin: 0 auto; padding: 40px 20px 80px;
     }
-
-    /* ── Header ── */
-    header {
-      border-bottom: 1px solid var(--rule);
-      padding: 48px 0 32px;
-      text-align: center;
+    @media (prefers-color-scheme: dark) {
+      body { color: #e7e9ea; background: #15202b; }
+      code { background: #1e2a36; }
+      a { color: #1d9bf0; }
     }
-
-    .logo-mark {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 24px;
-      text-decoration: none;
-    }
-
-    .logo-circle {
-      width: 36px; height: 36px;
-      background: var(--accent);
-      border-radius: 50%;
-      display: grid; place-items: center;
-      color: #fff; font-weight: 700;
-      font-family: sans-serif; font-size: 15px;
-    }
-
-    .logo-name {
-      font-family: sans-serif;
-      font-size: 17px; font-weight: 700;
-      color: var(--ink);
-      letter-spacing: -0.02em;
-    }
-
-    header h1 {
-      font-size: clamp(28px, 5vw, 42px);
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 10px;
-    }
-
-    .meta {
-      font-family: sans-serif;
-      font-size: 13px;
-      color: var(--ink-3);
-      letter-spacing: 0.04em;
-    }
-
-    /* ── Layout ── */
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 56px 24px 96px;
-    }
-
-    /* ── Intro box ── */
-    .intro-box {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-left: 3px solid var(--accent);
-      border-radius: 4px;
-      padding: 20px 24px;
-      margin-bottom: 48px;
-      font-family: sans-serif;
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--ink-2);
-    }
-
-    /* ── Sections ── */
-    section {
-      margin-bottom: 48px;
-    }
-
-    h2 {
-      font-family: sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    h3 {
-      font-family: sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--ink);
-      margin: 24px 0 8px;
-    }
-
-    p {
-      margin-bottom: 14px;
-      color: var(--ink-2);
-      font-size: 16px;
-    }
-
-    ul {
-      margin: 0 0 14px 0;
-      padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 8px;
-      color: var(--ink-2);
-      font-size: 16px;
-    }
-
-    /* ── Data table ── */
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: sans-serif;
-      font-size: 14px;
-      margin: 16px 0 24px;
-    }
-
-    .data-table th {
-      text-align: left;
-      font-weight: 600;
-      font-size: 12px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      padding: 8px 12px;
-      background: #f4f3f0;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .data-table td {
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--rule);
-      color: var(--ink-2);
-      vertical-align: top;
-    }
-
-    .data-table tr:last-child td { border-bottom: none; }
-
-    .badge {
-      display: inline-block;
-      font-family: sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 3px;
-    }
-
-    .badge-local {
-      background: #e8f5e9;
-      color: #2e7d32;
-    }
-
-    .badge-session {
-      background: #fff3e0;
-      color: #e65100;
-    }
-
-    /* ── Contact ── */
-    .contact-card {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-      padding: 20px 24px;
-      font-family: sans-serif;
-      font-size: 14px;
-    }
-
-    .contact-card a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .contact-card a:hover { text-decoration: underline; }
-
-    /* ── Footer ── */
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      border-top: 1px solid var(--rule);
-      font-family: sans-serif;
-      font-size: 12px;
-      color: var(--ink-3);
-    }
-
-    code {
-      font-family: "Menlo", "Monaco", monospace;
-      font-size: 13px;
-      background: #f0eeeb;
-      padding: 1px 5px;
-      border-radius: 3px;
-      color: var(--ink);
-    }
+    h1 { font-size: 28px; margin: 0 0 4px; }
+    h2 { font-size: 19px; margin: 32px 0 8px; }
+    .meta { color: #687684; font-size: 14px; margin-bottom: 8px; }
+    p, li { font-size: 15px; }
+    code { background: #f0f3f5; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+    ul { padding-left: 22px; }
+    a { color: #1a73e8; }
   </style>
 </head>
 <body>
+  <h1>X Likes Gallery — Privacy Policy</h1>
+  <p class="meta">Effective Date: June 03, 2026 &middot; Version 1.1</p>
 
-<header>
-  <div class="logo-mark">
-    <div class="logo-circle">X</div>
-    <span class="logo-name">X Likes Gallery</span>
-  </div>
-  <h1>Privacy Policy</h1>
-  <p class="meta">Effective Date: June 02, 2026 &nbsp;·&nbsp; Version 1.0</p>
-</header>
+  <h2>Overview</h2>
+  <p>X Likes Gallery is a browser extension that helps you collect, view, and organize images and videos from posts you have liked on X (Twitter). Core collection and gallery features run entirely on your device. Optional Pro features (cloud backup and subscription) transmit limited data to third-party services you choose to use, as described below. We do not sell your data or use it for advertising.</p>
 
-<main>
+  <h2>Data We Access</h2>
+  <p>To build your gallery, the Extension reads post metadata and media (images and video thumbnails/URLs) from the X pages you visit and from X's internal APIs. This includes the author handle, post text, timestamps, and media URLs of posts you have liked. This data is used solely to display and organize your collection.</p>
 
-  <div class="intro-box">
-    <strong>Short version:</strong> X Likes Gallery operates entirely on your device. We do not collect, store, or transmit your personal data to any external server. Everything stays in your browser.
-  </div>
+  <h2>How Data Is Stored</h2>
+  <p>Your collected gallery data is stored locally on your device in the browser's extension storage (<code>chrome.storage.local</code>). It is not transmitted to us. Two optional Pro features involve external storage that you explicitly enable:</p>
+  <ul>
+    <li><strong>Cloud backup:</strong> your selected media is uploaded to <em>your own</em> Google Drive. We do not host your media on our servers.</li>
+    <li><strong>Subscription verification:</strong> the email address you provide at checkout is stored by our payment and verification providers (see below).</li>
+  </ul>
 
-  <!-- 1 -->
-  <section>
-    <h2>1. Overview</h2>
-    <p>X Likes Gallery ("the Extension") is a Chrome browser extension that allows you to view and organize media (images and videos) from posts you have liked on X (formerly Twitter) in a Pinterest-style gallery.</p>
-    <p>This Privacy Policy explains what data the Extension accesses, how it is used, and your rights regarding that data. By installing or using the Extension, you agree to the practices described in this policy.</p>
-  </section>
+  <h2>Permissions Explained</h2>
+  <ul>
+    <li><code>storage</code> / <code>unlimitedStorage</code> — save your gallery data locally.</li>
+    <li><code>tabs</code> — coordinate the collector and open the gallery dashboard.</li>
+    <li><code>identity</code> — sign in to your Google account for the optional cloud backup feature.</li>
+    <li>Host access to X (x.com, twitter.com) and X media/CDN hosts — read liked posts and fetch their media.</li>
+    <li>Host access to Google APIs — upload backups to your Google Drive (only when cloud backup is enabled).</li>
+  </ul>
 
-  <!-- 2 -->
-  <section>
-    <h2>2. Data We Access</h2>
-    <p>The Extension accesses the following data solely to provide its core functionality:</p>
+  <h2>Third-Party Services</h2>
+  <p>The Extension interacts with X's internal APIs to fetch post metadata and media, subject to X's Privacy Policy.</p>
+  <p><strong>Google Drive (optional, Pro):</strong> If you enable cloud backup, your selected media is uploaded to <em>your own</em> Google Drive using the restricted <code>drive.file</code> scope, which limits access to files this app creates. We never host your media on our servers; files live only in your Drive. Subject to Google's Privacy Policy.</p>
+  <p><strong>Paddle (payment):</strong> Pro subscriptions are processed by Paddle.com Market Ltd. as Merchant of Record. Payment details are entered on Paddle's hosted checkout and handled by Paddle; we never receive or store your card data. Subject to Paddle's Privacy Policy.</p>
+  <p><strong>Cloudflare Workers (subscription verification):</strong> To confirm an active subscription, the email address you provide at checkout is stored in a Cloudflare Workers KV store and queried by the extension. It is used solely for subscription verification.</p>
 
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Purpose</th>
-          <th>Storage</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Media URLs<br><small>(image &amp; video URLs from liked posts)</small></td>
-          <td>Display media in the gallery</td>
-          <td><span class="badge badge-local">Local only</span></td>
-        </tr>
-        <tr>
-          <td>Post (Tweet) URLs</td>
-          <td>Link back to the original post</td>
-          <td><span class="badge badge-local">Local only</span></td>
-        </tr>
-        <tr>
-          <td>Author handles<br><small>(e.g. @username)</small></td>
-          <td>Display attribution; enable author filtering</td>
-          <td><span class="badge badge-local">Local only</span></td>
-        </tr>
-        <tr>
-          <td>User-defined tags &amp; bookmarks</td>
-          <td>Organize and filter your gallery</td>
-          <td><span class="badge badge-local">Local only</span></td>
-        </tr>
-        <tr>
-          <td>X CSRF token (<code>ct0</code>)</td>
-          <td>Authenticate requests to X's API to fetch post metadata. <strong>Never stored — held in memory only for the duration of the browser session.</strong></td>
-          <td><span class="badge badge-session">Memory only</span></td>
-        </tr>
-      </tbody>
-    </table>
+  <h2>Payment &amp; Subscription Data</h2>
+  <p>When you subscribe to Pro, you provide an email address used to identify your subscription. This email is stored by our payment provider (Paddle) and our verification service (Cloudflare Workers) and is used only to confirm your subscription status. You can request deletion of this data at <a href="mailto:nemolab.official@gmail.com">nemolab.official@gmail.com</a>.</p>
 
-    <h3>What we do NOT access</h3>
-    <ul>
-      <li>Your X (Twitter) login credentials or password</li>
-      <li>Your direct messages, drafts, or private account data</li>
-      <li>Posts you have not liked</li>
-      <li>Any data from websites other than x.com and twitter.com</li>
-      <li>Your browsing history outside of x.com / twitter.com</li>
-    </ul>
-  </section>
+  <h2>Data Retention &amp; Deletion</h2>
+  <p>Gallery data remains on your device until you delete it or remove the Extension. Cloud backup files remain in your Google Drive until you delete them there. When you cancel your subscription or send a deletion request to <a href="mailto:nemolab.official@gmail.com">nemolab.official@gmail.com</a>, we remove the subscription email associated with your account from our verification store.</p>
 
-  <!-- 3 -->
-  <section>
-    <h2>3. How Data Is Stored</h2>
-    <p>All data collected by the Extension is stored exclusively in <strong>Chrome's local extension storage</strong> (<code>chrome.storage.local</code>) on your own device. This means:</p>
-    <ul>
-      <li>Data never leaves your browser.</li>
-      <li>We have no servers and receive no data from you.</li>
-      <li>Data persists only until you clear your extension data or uninstall the Extension.</li>
-      <li>The CSRF token (<code>ct0</code>) is held in memory only and is never written to persistent storage.</li>
-    </ul>
-  </section>
+  <h2>Children's Privacy</h2>
+  <p>The Extension is not directed to children under 13 (or the minimum age in your jurisdiction) and we do not knowingly collect their data.</p>
 
-  <!-- 4 -->
-  <section>
-    <h2>4. Permissions Explained</h2>
-    <p>The Extension requests the following Chrome permissions:</p>
-    <ul>
-      <li><strong>storage / unlimitedStorage</strong> — Required to save your gallery data, tags, and settings locally on your device.</li>
-      <li><strong>tabs</strong> — Required to detect the active tab and open the full-screen dashboard. The Extension does not read the URLs of tabs outside of x.com / twitter.com.</li>
-      <li><strong>Host permissions for x.com, twitter.com, pbs.twimg.com, and related domains</strong> — Required to read liked-post content and load media from X's CDN.</li>
-    </ul>
-  </section>
+  <h2>Changes to This Policy</h2>
+  <p>We may update this policy as the Extension evolves. Material changes will be reflected by a new effective date and version above.</p>
 
-  <!-- 5 -->
-  <section>
-    <h2>5. Third-Party Services</h2>
-    <p>The Extension interacts with X's internal GraphQL API (<code>x.com/i/api/graphql/…</code>) to fetch post metadata for media items imported from your X data archive. This interaction occurs using your existing authenticated browser session and is subject to <a href="https://x.com/en/privacy" target="_blank" rel="noopener">X's Privacy Policy</a>.</p>
-    <p>We do not share data with any analytics providers, advertisers, or other third parties.</p>
-  </section>
-
-  <!-- 6 -->
-  <section>
-    <h2>6. Data Retention &amp; Deletion</h2>
-    <p>Because all data is stored locally on your device, you are in full control:</p>
-    <ul>
-      <li><strong>Delete all data:</strong> Uninstall the Extension from Chrome. All stored data is immediately and permanently removed.</li>
-      <li><strong>Delete partial data:</strong> Use the "Clear Data" option within the Extension's dashboard (if available), or clear Chrome extension storage manually via <code>chrome://settings/content/all</code>.</li>
-    </ul>
-    <p>We have no ability to access or delete data on your behalf because we never receive it.</p>
-  </section>
-
-  <!-- 7 -->
-  <section>
-    <h2>7. Children's Privacy</h2>
-    <p>The Extension is not directed at children under the age of 13 (or the applicable age in your jurisdiction). We do not knowingly collect data from children. If you believe a child has used this Extension, please uninstall it from the device.</p>
-  </section>
-
-  <!-- 8 -->
-  <section>
-    <h2>8. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Effective Date" at the top of this page and update the Extension version in the Chrome Web Store. Continued use of the Extension after changes constitutes acceptance of the updated policy.</p>
-    <p>Significant changes that affect data handling practices will be communicated through the Extension's Chrome Web Store listing or update notes.</p>
-  </section>
-
-  <!-- 9 -->
-  <section>
-    <h2>9. Contact</h2>
-    <p>If you have questions or concerns about this Privacy Policy or the Extension's data practices, please reach out:</p>
-    <div class="contact-card">
-      <strong>X Likes Gallery</strong><br><br>
-      GitHub Issues: <a href="https://github.com/nemolabofficial-afk/x-likes-gallery/issues" target="_blank" rel="noopener">github.com/YOUR_USERNAME/x-likes-gallery/issues</a><br>
-      Email: <a href="mailto:nemolab.official@gmail.com">nemolab.official@gmail.com</a>
-    </div>
-    <p style="margin-top:16px; font-size:14px; color: var(--ink-3); font-family: sans-serif;">
-      <em>Replace the placeholders above with your actual GitHub repo URL and contact email before publishing.</em>
-    </p>
-  </section>
-
-</main>
-
-<footer>
-  &copy; 2026 X Likes Gallery &nbsp;·&nbsp; All data stays on your device &nbsp;·&nbsp; <a href="#" style="color: inherit;">Back to top</a>
-</footer>
-
+  <h2>Contact</h2>
+  <p>Questions about privacy: <a href="mailto:nemolab.official@gmail.com">nemolab.official@gmail.com</a></p>
 </body>
 </html>
