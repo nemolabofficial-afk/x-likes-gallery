@@ -27,7 +27,7 @@
 </head>
 <body>
   <h1>X Likes Gallery — Privacy Policy</h1>
-  <p class="meta">Effective Date: June 04, 2026 &middot; Version 1.2</p>
+  <p class="meta">Effective Date: June 17, 2026 &middot; Version 1.3</p>
 
   <h2>Overview</h2>
   <p>X Likes Gallery is a browser extension that helps you collect, view, and organize images and videos from posts you have liked on X (Twitter). The extension is free. Core collection and gallery features run entirely on your device. The optional cloud backup feature transmits media only to your own Google Drive, as described below. We do not sell your data or use it for advertising.</p>
@@ -41,6 +41,9 @@
     <li><strong>Cloud backup:</strong> your selected media is uploaded to <em>your own</em> Google Drive. We do not host your media on our servers.</li>
   </ul>
 
+  <h2>On-Device AI Tagging</h2>
+  <p>The Extension includes an optional, on-device AI tagging feature that suggests tags for your images. All image analysis runs locally on your device; your images and the resulting tags are never transmitted to us or any third party. The only network activity is a one-time download of the open AI model file from <code>huggingface.co</code>, which is cached on your device for reuse. No personal data, image data, or account information is sent during this download.</p>
+
   <h2>Permissions Explained</h2>
   <ul>
     <li><code>storage</code> / <code>unlimitedStorage</code> — save your gallery data locally.</li>
@@ -48,6 +51,7 @@
     <li><code>identity</code> — sign in to your Google account for the optional cloud backup feature.</li>
     <li>Host access to X (x.com, twitter.com) and X media/CDN hosts — read liked posts and fetch their media.</li>
     <li>Host access to Google APIs — upload backups to your Google Drive (only when cloud backup is enabled).</li>
+    <li>Host access to <code>huggingface.co</code> — one-time download of the local AI tagging model (only when AI tagging is used).</li>
   </ul>
 
   <h2>Third-Party Services</h2>
